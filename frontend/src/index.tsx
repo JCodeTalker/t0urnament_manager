@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import SignIn from "./screens/SignIn";
+import SignUp from "./screens/SignUp";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,6 +13,7 @@ root.render(
   <React.StrictMode>
     {/* <App /> */}
     <SignIn />
+    {/* <SignUp /> */}
   </React.StrictMode>
 );
 

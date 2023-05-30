@@ -25,9 +25,12 @@ router.register(r'users', views.UserView, 'user')
 router.register(r'decks', views.DeckView, 'deck')
 router.register(r'cards', views.CardsView, 'card')
 router.register(r'tournament_player', views.TourPlayerView, 'player')
+# router.register(r'create_user', views.create_user_view, basename='create_user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('create_user', views.create_user_view, name='create_user'),
+    # path('create-user', views.create_user_view)
     # path('api/', include(router.urls))
 ]

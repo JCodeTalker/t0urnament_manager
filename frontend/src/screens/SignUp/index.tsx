@@ -36,13 +36,12 @@ function Copyright(props: any) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // axios.defaults.withCredentials = true;
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     // const handleSubmit = () => {
     event.preventDefault();
     // const data = new FormData(event.currentTarget);
@@ -50,14 +49,6 @@ export default function SignIn() {
     //   email: data.get("email"),
     //   password: data.get("password"),
     // });
-
-    // Get the CSRF token from the server
-    // const { data: csrfToken } = await axios.get("/api/get_csrf_token/");
-
-    // Create the headers object with the CSRF token
-    // const headers = {
-    //   "X-CSRFToken": csrfToken,
-    // };
 
     // Create a data object with the form fields
     const data = {
@@ -68,11 +59,7 @@ export default function SignIn() {
 
     // Send a POST request to the Django backend
     axios
-      .post("http://localhost:8000/create_user", data, {
-        // headers,
-        withCredentials: true,
-      })
-      // .post("http://localhost:8000/create_user", data, {headers})
+      .post("http://localhost:8000/create_user", data)
       .then((response) => {
         // Handle the response if needed
         console.log(response.data);
@@ -99,7 +86,7 @@ export default function SignIn() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
           <Box
             component="form"
@@ -107,7 +94,7 @@ export default function SignIn() {
             noValidate
             sx={{ mt: 1 }}
           >
-            {/* <TextField
+            <TextField
               margin="normal"
               required
               fullWidth
@@ -117,7 +104,7 @@ export default function SignIn() {
               autoComplete="user"
               autoFocus
               onChange={(event) => setUsername(event.target.value)}
-            /> */}
+            />
             <TextField
               margin="normal"
               required
@@ -152,7 +139,7 @@ export default function SignIn() {
               // onSubmit={handleSubmit}
               // onClick={handleSubmit}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
@@ -162,7 +149,7 @@ export default function SignIn() {
               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Already have an account? Sign In"}
                 </Link>
               </Grid>
             </Grid>
